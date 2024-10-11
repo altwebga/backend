@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.0.4",
+    "@strapi/plugin-seo": "^2.0.0",
     "@strapi/plugin-users-permissions": "5.0.4",
     "@strapi/provider-email-nodemailer": "^5.0.4",
     "@strapi/provider-upload-aws-s3": "^5.0.4",
@@ -20,6 +21,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "strapi-plugin-multi-select": "^2.1.1",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
