@@ -4,7 +4,8 @@
   "info": {
     "singularName": "portfolio",
     "pluralName": "portfolios",
-    "displayName": "Portfolio"
+    "displayName": "Portfolio",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,11 +19,12 @@
       "type": "richtext"
     },
     "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "client": {
       "type": "relation",
@@ -34,6 +36,11 @@
     },
     "site_url": {
       "type": "string"
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }
