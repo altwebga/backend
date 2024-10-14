@@ -12,7 +12,7 @@ export class PostsService {
   }
 
   // Получение одного поста по id
-  async findOne(id: number): Promise<Post | null> {
+  async findOne(id: string): Promise<Post | null> {
     return this.prisma.post.findUnique({
       where: { id },
     });
@@ -26,7 +26,7 @@ export class PostsService {
   }
 
   // Обновление поста по id
-  async update(id: number, data: Prisma.PostUpdateInput): Promise<Post> {
+  async update(id: string, data: Prisma.PostUpdateInput): Promise<Post> {
     return this.prisma.post.update({
       where: { id },
       data,
@@ -34,7 +34,7 @@ export class PostsService {
   }
 
   // Удаление поста по id
-  async remove(id: number): Promise<Post> {
+  async remove(id: string): Promise<Post> {
     return this.prisma.post.delete({
       where: { id },
     });

@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
-import { PrismaModule } from 'prisma/prisma.module';
-import { PostsModule } from './posts/posts.module';
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'prisma/prisma.service';
 
-@Module({
-  imports: [PrismaModule, PostsModule],
-})
-export class AppModule {}
+@Injectable()
+export class AppService {
+  getHello(): string {
+    return 'Hello World!';
+  }
+}

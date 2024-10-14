@@ -23,7 +23,7 @@ export class PostsController {
   // Получение поста по id
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<PostModel | null> {
-    return this.postsService.findOne(Number(id));
+    return this.postsService.findOne(String(id));
   }
 
   // Создание нового поста
@@ -38,12 +38,12 @@ export class PostsController {
     @Param('id') id: string,
     @Body() postData: Prisma.PostUpdateInput,
   ): Promise<PostModel> {
-    return this.postsService.update(Number(id), postData);
+    return this.postsService.update(String(id), postData);
   }
 
   // Удаление поста по id
   @Delete(':id')
   async remove(@Param('id') id: string): Promise<PostModel> {
-    return this.postsService.remove(Number(id));
+    return this.postsService.remove(String(id));
   }
 }
