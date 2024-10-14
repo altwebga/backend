@@ -1,61 +1,26 @@
-# 🚀 Getting started with Strapi
+Для того чтобы запустить сборку вашего проекта на сервере, используя файлы `docker-compose.yml` и `Dockerfile.prod`, можно выполнить следующие шаги:
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+1. Убедитесь, что у вас установлен Docker и Docker Compose на сервере.
+2. В корневой директории проекта, где находится ваш файл `docker-compose.yml`, выполните команду:
 
-### `develop`
+   ```bash
+   docker-compose -f docker-compose.yml -f Dockerfile.prod up --build
+   ```
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+   Эта команда выполнит сборку образов и запустит сервисы, определённые в `docker-compose.yml`. Опция `--build` укажет Docker'у пересобрать образы, используя инструкции из `Dockerfile.prod`.
 
+3. Если вы хотите запустить сборку в фоновом режиме (в "detached mode"), добавьте флаг `-d`:
+
+   ```bash
+   docker-compose -f docker-compose.yml -f Dockerfile.prod up --build -d
+   ```
+
+4. После того как контейнеры запустятся, приложение Strapi будет доступно на порту `1337`, как указано в настройках `ports` файла `docker-compose.yml`.
+
+Если сборка происходит без ошибок, вы сможете получить доступ к вашему приложению по адресу `http://<IP вашего сервера>:1337`.
+
+Если необходимо следить за логами контейнеров, используйте команду:
+
+```bash
+docker-compose logs -f
 ```
-npm run develop
-# or
-yarn develop
-```
-
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-```
-yarn strapi deploy
-```
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
