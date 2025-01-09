@@ -1,5 +1,31 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedAvailability extends Struct.ComponentSchema {
+  collectionName: 'components_shared_availabilities';
+  info: {
+    description: '';
+    displayName: 'Availability';
+    icon: 'bulletList';
+  };
+  attributes: {
+    from: Schema.Attribute.Date;
+    to: Schema.Attribute.Date;
+  };
+}
+
+export interface SharedLocation extends Struct.ComponentSchema {
+  collectionName: 'components_shared_locations';
+  info: {
+    displayName: 'Location';
+    icon: 'pinMap';
+  };
+  attributes: {
+    address: Schema.Attribute.String;
+    latitude: Schema.Attribute.Float;
+    longitude: Schema.Attribute.Float;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -31,7 +57,7 @@ export interface SharedRichText extends Struct.ComponentSchema {
     icon: 'align-justify';
   };
   attributes: {
-    body: Schema.Attribute.RichText;
+    description: Schema.Attribute.Blocks;
   };
 }
 
@@ -58,13 +84,15 @@ export interface SharedSlider extends Struct.ComponentSchema {
     icon: 'address-book';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    images: Schema.Attribute.Media<'images', true>;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.availability': SharedAvailability;
+      'shared.location': SharedLocation;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

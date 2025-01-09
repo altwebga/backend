@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_availabilities",
+  "info": {
+    "displayName": "Availability",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "from": {
+      "type": "date"
+    },
+    "to": {
+      "type": "date"
+    }
+  }
+}

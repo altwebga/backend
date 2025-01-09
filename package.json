@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.7.0",
+    "@strapi/plugin-documentation": "^5.7.0",
     "@strapi/plugin-users-permissions": "5.7.0",
     "@strapi/provider-upload-aws-s3": "^5.7.0",
     "@strapi/strapi": "5.7.0",
@@ -35,6 +36,7 @@
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "5503d56d-f2f3-4fd2-b6b3-72f0832d1813"
+    "uuid": "5503d56d-f2f3-4fd2-b6b3-72f0832d1813",
+    "telemetryDisabled": true
   }
 }
