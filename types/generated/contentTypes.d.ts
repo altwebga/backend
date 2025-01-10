@@ -534,6 +534,38 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPlacePlace extends Struct.CollectionTypeSchema {
+  collectionName: 'places';
+  info: {
+    description: '';
+    displayName: 'Place';
+    pluralName: 'places';
+    singularName: 'place';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'shared.rich-text', false>;
+    gallery: Schema.Attribute.Component<'shared.slider', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::place.place'> &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.Component<'shared.location', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    regions: Schema.Attribute.Relation<'oneToMany', 'api::region.region'>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiRegionRegion extends Struct.CollectionTypeSchema {
   collectionName: 'regions';
   info: {
@@ -1081,6 +1113,7 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::place.place': ApiPlacePlace;
       'api::region.region': ApiRegionRegion;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
